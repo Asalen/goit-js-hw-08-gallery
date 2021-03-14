@@ -1,5 +1,5 @@
 import itemList from './gallery-items.js'
-const galleryRef = document.querySelector('.js-gallery');
+const galRef = document.querySelector('.js-gallery');
 const closeModalBtnRef = document.querySelector('button[data-action="close-lightbox"]');
 const lightboxOverlayRef = document.querySelector('.js-lightbox > .lightbox__overlay');
 const bodyRef = document.querySelector('body');
@@ -7,7 +7,7 @@ const lightboxRef = document.querySelector('.js-lightbox');
 const lightboxImageRef = document.querySelector('.lightbox__content > .lightbox__image');
 
 
-const createGalleryItem = items => {
+const createGalItem = items => {
     return items.map(({ preview, original, description }) => {
         return `<li class="gallery__item">
     <a
@@ -56,13 +56,11 @@ const onEscKeydown = e => {
 }
 
 
+const createMarkup = createGalItem(itemList);
+galRef.insertAdjacentHTML('beforeend', createMarkup);
 
+bodyRef.addEventListener('keydown', onEscKeydown);
 
-const createMarkup = createGalleryItem(itemList);
-galleryRef.insertAdjacentHTML('beforeend', createMarkup);
-
-bodyRef.addEventListener('keydown', onEscKeydown)
-
-galleryRef.addEventListener('click', onOpenModalBtnCLick)
-closeModalBtnRef.addEventListener('click', onCloseModalBtnClick)
-lightboxOverlayRef.addEventListener('click', onCloseModalBtnClick)
+galRef.addEventListener('click', onOpenModalBtnCLick);
+closeModalBtnRef.addEventListener('click', onCloseModalBtnClick);
+lightboxOverlayRef.addEventListener('click', onCloseModalBtnClick);
