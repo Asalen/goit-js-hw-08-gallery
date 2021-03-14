@@ -55,7 +55,6 @@ const onEscKeydown = e => {
     changeSettings(e)
 }
 
-
 const createMarkup = createGalItem(itemList);
 galRef.insertAdjacentHTML('beforeend', createMarkup);
 
