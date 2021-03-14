@@ -6,7 +6,6 @@ const bodyRef = document.querySelector('body');
 const lightboxRef = document.querySelector('.js-lightbox');
 const lightboxImageRef = document.querySelector('.lightbox__content > .lightbox__image');
 
-
 const createGalItem = items => {
     return items.map(({ preview, original, description }) => {
         return `<li class="gallery__item">
@@ -28,7 +27,6 @@ const createGalItem = items => {
     }).join(' ')
 };
 
-
 const changeSettings = e => {
     lightboxImageRef.src = e.target.dataset.source;
     lightboxImageRef.alt = e.target.alt
@@ -43,10 +41,12 @@ const onOpenModalBtnCLick = e => {
     changeSettings(e)
 
 };
+
 const onCloseModalBtnClick = (e) => {
     lightboxRef.classList.remove('is-open')
     changeSettings(e)
 };
+
 const onEscKeydown = e => {
     if (e.keyCode !== 27) {
         return
