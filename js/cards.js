@@ -35,9 +35,13 @@ const createGalItem = items => {
         .join(' ');
 };
 
-const changeSettings = e => {
-    lightboxImageRef.src = e.target.dataset.source;
-    lightboxImageRef.alt = e.target.alt;
+const changeAtts = (src = '', alt = '') => {
+    lightboxImageRef.src = src;
+    lightboxImageRef.alt = alt;
+};
+
+const changeSettings = ({ target }) => {
+    changeAtts(target.dataset.source, target.alt);
 };
 
 const onOpenModalBtnCLick = e => {
@@ -53,8 +57,7 @@ const onOpenModalBtnCLick = e => {
 const onCloseModalBtnClick = e => {
     lightboxRef.classList.remove('is-open');
 
-    // lightboxImageRef.src = '';
-    // lightboxImageRef.alt = '';
+    changeAtts();
 };
 
 const onEscKeydown = e => {
