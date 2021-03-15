@@ -52,8 +52,9 @@ const onOpenModalBtnCLick = e => {
 
 const onCloseModalBtnClick = e => {
     lightboxRef.classList.remove('is-open');
-    lightboxImageRef.src = '';
-    lightboxImageRef.alt = '';
+
+    // lightboxImageRef.src = '';
+    // lightboxImageRef.alt = '';
 };
 
 const onEscKeydown = e => {
